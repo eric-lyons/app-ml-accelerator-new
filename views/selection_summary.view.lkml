@@ -53,7 +53,7 @@ view: selection_summary {
                           , column_name
                           , data_type
                           , count(0) over (partition by 1) AS input_data_column_count
-                      FROM `@{GCP_PROJECT}.@{BQML_MODEL_DATASET_NAME}`.INFORMATION_SCHEMA.COLUMNS
+                      FROM `lyons-lags.lags_european_data`.INFORMATION_SCHEMA.COLUMNS
                       WHERE table_name = '{% parameter selection_summary.input_data_view_name %}'
                       ) column_metadata
             ON column_stats.column_name = column_metadata.column_name
